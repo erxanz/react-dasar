@@ -1,40 +1,22 @@
-// import { useState } from "react";
+// fungsi usedState digunakan untuk membuat state di dalam komponen fungsional.
+// State adalah data yang dapat berubah-ubah dan mempengaruhi tampilan komponen.
+// Dengan menggunakan useState, kita dapat menyimpan data yang dapat berubah-ubah
+// dan memperbarui tampilan komponen ketika data tersebut berubah.
+import { useState } from "react";
 
 import "./App.css";
-import Header from "./components/Header";
-
-// Menggunakan props untuk mengirim data dari parent component ke child component
-// Props bersifat read-only, artinya data yang dikirim dari parent component tidak bisa diubah oleh child component. Jika ingin mengubah data, maka harus dilakukan di parent component dan dikirim kembali ke child component melalui props.
-function Welcome(props) {
-  return (
-  <>
-    <h4>Halo {props.name}</h4>
-    <h4>Umur {props.age}</h4>
-  </>
-  )
-}
-
-// Menggunakan destructuring props untuk mengakses data yang dikirim dari parent component
-function UserCard({ name, age}) {
-  return (
-    <>
-    <p>{name}</p>
-    <p>umur {age}</p>
-    </>
-  )
-}
 
 function App() {
+  const [message, setMessage] = useState("Halo, React!");
+
   return (
     <>
-    <div>
-      <Header />
-      <p>Halaman utama App React</p>
-      <Welcome name="John" age={20} />
-      <UserCard name="Jane" age={19} />
-    </div>
+      <div>
+        <h1>{message}</h1>
+        <button onClick={() => setMessage("Pesan diubah!")}>Ubah pesan</button>
+      </div>
     </>
-  )
+  );
 }
 
 export default App;
