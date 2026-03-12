@@ -8,12 +8,17 @@ import "./App.css";
 
 function App() {
   const [message, setMessage] = useState("Halo, React!");
+  const [count, setCount] = useState(0);
 
   return (
     <>
       <div>
-        <h1>{message}</h1>
+        <h3>{message}</h3>
         <button onClick={() => setMessage("Pesan diubah!")}>Ubah pesan</button>
+
+        <h5>Count: {count}</h5>
+        <button onClick={() => setCount(count + 1)}>Tambah</button>
+        <button onClick={() => setCount(count - 1)}>Kurang</button>
       </div>
     </>
   );
